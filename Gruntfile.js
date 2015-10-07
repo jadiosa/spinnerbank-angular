@@ -420,6 +420,9 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
+      'concat',
+      'uglify',
+      'uglify.generated',
       'watch'
     ]);
   });
@@ -435,6 +438,9 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
+    'concat',
+    'uglify',
+    'uglify.generated',
     'karma'
   ]);
 
@@ -451,6 +457,8 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
+    'uglify.generated',
+
     'filerev',
     'usemin',
     'htmlmin'
@@ -459,6 +467,10 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
+    'concat',
+    'uglify',
+    'uglify.generated',
     'build'
   ]);
+
 };
