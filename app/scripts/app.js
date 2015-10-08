@@ -10,9 +10,12 @@
  */
 angular
   .module('spinnerBankAngularApp', [
+    'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
