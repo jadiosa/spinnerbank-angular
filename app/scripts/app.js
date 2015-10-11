@@ -20,14 +20,14 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/principal.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/producto', {
+        templateUrl: 'views/producto.html',
+        controller: 'prodControler',
+        controllerAs: 'producto'
       })
       .otherwise({
         redirectTo: '/'
