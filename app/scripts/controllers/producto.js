@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name spinnerBankAngularApp.controller:AboutCtrl
+ * @name spinnerBankAngularApp.controller:prodControler
  * @description
- * # AboutCtrl
+ * # prodControler
  * Controller of the spinnerBankAngularApp
  */
 angular.module('spinnerBankAngularApp')
