@@ -24,6 +24,6 @@ spinnerBankAngularApp.controller('prodControler', function ($scope, productWebSe
 				}
 
 				shared.selectedProduct($scope.selectedProduct);
-				$location.url("/views/detalles");
+				$location.url("/views/listaMovimientos");
 				};
   });
