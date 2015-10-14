@@ -47,6 +47,7 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
       return ($http({
         method : 'GET',
         url : PRODUCT_WEB_SERVICE+userIdNumber
+
       }));
     };
   });
@@ -62,3 +63,5 @@ spinnerBankAngularApp.service('shared', function() {
     }
   };
 });
+
+

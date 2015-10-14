@@ -8,10 +8,11 @@
  * Controller of the spinnerBank
  */
 spinnerBankAngularApp.controller('prodControler', function ($scope, productWebService, shared) {
-	$scope.userIdNumber=1936941186;
+	$scope.userIdNumber=36975248;
+	$scope.selectedProduct = undefined;
 	productWebService.products($scope.userIdNumber).success(
-				function(data) {
-					selectedProduct = undefined;
+				function(data, config) {
+					
 					$scope.products = data;
 
 			});
