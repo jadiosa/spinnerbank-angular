@@ -38,6 +38,3 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
         redirectTo: '/'
       });
   });
-
-
-
