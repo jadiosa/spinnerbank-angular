@@ -5,7 +5,7 @@
  los diferentes productos que estaran contenidos en la base 
  de datos y que estan relacionados con un cliente-->
 
-<div class="container" ng-controller="prodControler" >
+<div class="container" >
 	<h1 align="center">Listado de productos adquiridos por el cliente.</h1>
 	</br>
 	</p>
@@ -16,6 +16,7 @@
 			<th>Nombre del producto</th>
 			<th>Tipo de producto</th>
 			<th>Saldo</th>
+			<th>Consultas</th>
 		</tr>
 
 <!-- 		Columnas de la tabla aplicandoles diversos filtros de busqueda -->
@@ -24,6 +25,7 @@
 			<td>{{item.nombre}}</td>
 			<td>{{item.tipo}}</td>
 			<td>{{item.saldo}}</td>
+			<td><button type="button"class="btn btn-primary btn-sm" ng-click="detalles(item)">Movimientos</button></td>
 		</tr>
 	</table>
 </div>

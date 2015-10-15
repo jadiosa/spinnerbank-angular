@@ -1,10 +1,5 @@
 'use strict';
 
-
-/**
- * Variable que expone la ruta al Servicio Web que permite obtener los diferentes  productos que tiene un cliente con el banco.
- */
-var PRODUCT_WEB_SERVICE = 'https://spinnerbank-api-external.herokuapp.com/productos/';
 /**
  * @ngdoc overview
  * @name spinnerBankAngularApp
@@ -16,6 +11,7 @@ var PRODUCT_WEB_SERVICE = 'https://spinnerbank-api-external.herokuapp.com/produc
 var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
     'ngAnimate',
     'ngCookies',
+    'ui.bootstrap',
     'ngResource',
     'ngRoute',
     'ngSanitize',
@@ -24,44 +20,24 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/principal.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/Principal.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
       })
       .when('/producto', {
-        templateUrl: 'views/producto.html',
+        templateUrl: 'views/Producto.html',
         controller: 'prodControler',
-        controllerAs: 'producto'
+        controllerAs: 'Producto'
+      })
+      .when('/producto/detalle', {
+        templateUrl: 'views/Detalle.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
 
-/**
- * Servicio empleado para hacer uso del Servicio Web que permite
- * obtener el listado de productos del cliente identificado con userIdNumber
- */
-    spinnerBankAngularApp.service('productWebService', function($http) {
-    this.products = function(userIdNumber) {  
-      return ($http({
-        method : 'GET',
-        url : PRODUCT_WEB_SERVICE+userIdNumber
-
-      }));
-    };
-  });
-
-spinnerBankAngularApp.service('shared', function() {
-  var product= {};
-  return {
-    getProduct : function() {
-      return product;
-    },
-    setProduct : function(value) {
-      product = value;
-    }
-  };
-});
 
 
