@@ -8,10 +8,10 @@
  *
  * Main module of the application.
  */
-angular
-  .module('spinnerBankAngularApp', [
+var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
     'ngAnimate',
     'ngCookies',
+    'ui.bootstrap',
     'ngResource',
     'ngRoute',
     'ngSanitize',
@@ -20,16 +20,24 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/principal.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/Principal.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
       })
       .when('/producto', {
-        templateUrl: 'views/producto.html',
+        templateUrl: 'views/Producto.html',
         controller: 'prodControler',
-        controllerAs: 'producto'
+        controllerAs: 'Producto'
+      })
+      .when('/producto/detalle', {
+        templateUrl: 'views/Detalle.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+
+
