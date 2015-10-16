@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Lugar donde vamos a cargar las diferentes vistas de la aplicación -->
 
     <div class="container">
@@ -65,7 +65,7 @@
     </div>
 
 
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -85,9 +85,11 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <!-- Aquí debemos hacer referencia a todos los archivos js que creemos para la lógica de negocio -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/Producto.js"></script>
-        <script src="scripts/services/ProductoService.js"></script>
+
+        <script src="modules/productos_cliente/scripts/controllers.js"></script>
+        <script src="modules/productos_cliente/scripts/services.js"></script>
+
+
         <!-- endbuild -->
 </body>
 </html>
