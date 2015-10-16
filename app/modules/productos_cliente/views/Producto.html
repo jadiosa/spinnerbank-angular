@@ -2,10 +2,10 @@
 <!-- @email jorge.atehortua@gmail.com -->
 
 <!-- Esta pagina HTML sera la encargada de llamar y mostrar
- los diferentes productos que estaran contenidos en la base 
+ los diferentes productos que estaran contenidos en la base
  de datos y que estan relacionados con un cliente-->
 
-<div class="container" ng-controller="prodControler" >
+<div class="container" >
 	<h1 align="center">Listado de productos adquiridos por el cliente.</h1>
 	</br>
 	</p>
@@ -13,18 +13,21 @@
 <!-- 	tabla para mostrar los archivos  -->
 	<table class="table">
 		<tr class="btn-primary">
+			<th>Codigo producto</th>
 			<th>Nombre del producto</th>
 			<th>Tipo de producto</th>
 			<th>Saldo</th>
+			<th>Consultas</th>
 		</tr>
 
 <!-- 		Columnas de la tabla aplicandoles diversos filtros de busqueda -->
 		<tr
-			ng-repeat="item in products">
+			ng-repeat="item in productos">
+			<td>{{item.idProducto}}</td>
 			<td>{{item.nombre}}</td>
 			<td>{{item.tipo}}</td>
 			<td>{{item.saldo}}</td>
+			<td><button type="button"class="btn btn-primary btn-sm" ng-click="detalles(item)">Movimientos</button></td>
 		</tr>
 	</table>
 </div>
-
