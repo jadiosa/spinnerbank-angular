@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('spinnerbankAngularApp'));
+  beforeEach(module('spinnerBankAngularApp'));
 
   var AboutCtrl,
     scope;

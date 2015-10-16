@@ -15,9 +15,7 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'productos.controllers',
-    'productos.services'
+    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -27,7 +25,12 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
         controllerAs: 'Producto'
       })
       .when('/producto', {
-        templateUrl: 'modules/productos_cliente/views/Producto.html',
+        templateUrl: 'views/Producto.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
+      })
+      .when('/producto/detalle', {
+        templateUrl: 'views/Detalle.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
       })
