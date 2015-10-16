@@ -8,8 +8,6 @@ angular.module('productos.controllers',['productos.services'])
 
     API.obtenerProductos($scope.id).success(function(data) {
       $scope.productos = data;
-    }).error(function(data, status, headers, config) {
-        console.log('Error', data.error);
     });
 
   	$scope.detalles = function(producto) {
@@ -29,7 +27,11 @@ angular.module('productos.controllers',['productos.services'])
 
   .controller('modalControler', function ($scope, $modalInstance, API, producto) {
 
-    $scope.detalles = API.detalleMovimientos(producto.idCliente, producto.idProducto);
+    //$scope.detalles = API.detalleMovimientos(producto.idProducto);
+
+    API.detalleMovimientos(producto.idProducto).success(function(data) {
+      $scope.detalles = data;
+    });
 
     $scope.salirDetalle = function() {
       $modalInstance.close();
