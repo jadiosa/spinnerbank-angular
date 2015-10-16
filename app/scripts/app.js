@@ -22,7 +22,7 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/Principal.html',
+        templateUrl: 'views/principal.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
       })
