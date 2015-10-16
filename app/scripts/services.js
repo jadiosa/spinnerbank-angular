@@ -37,7 +37,12 @@ angular.module('productos.services', [])
       }],
 
 
-      detalleMovimientos: function(id, cod) {
+      detalleMovimientos: function(productId) {
+        return $http.get(base + '/transactions/' + productId, {
+          method: 'GET'
+        });
+
+        /*
         var lista = [];
         for (var i in this.lista_movimientos) {
           if (this.lista_movimientos[i].id == id) {
@@ -47,6 +52,7 @@ angular.module('productos.services', [])
           }
         }
         return lista;
+        */
       },
 
       obtenerProductos: function(id) {
@@ -54,5 +60,5 @@ angular.module('productos.services', [])
           method: 'GET'
         });
       }
-    }
+    };
   });
