@@ -27,7 +27,7 @@ var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
         controllerAs: 'Producto'
       })
       .when('/producto', {
-        templateUrl: 'views/Producto.html',
+        templateUrl: 'modules/productos_cliente/views/Producto.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
       })

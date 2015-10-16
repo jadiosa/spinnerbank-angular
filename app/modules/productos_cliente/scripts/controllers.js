@@ -14,7 +14,7 @@ angular.module('productos.controllers',['productos.services'])
 
   	$scope.detalles = function(producto) {
       var detalleProducto = $modal.open({
-        templateUrl: 'views/Detalle.html',
+        templateUrl: 'modules/productos_cliente/views/Detalle.html',
         controller: 'modalControler',
         resolve: {
           producto: function () {
