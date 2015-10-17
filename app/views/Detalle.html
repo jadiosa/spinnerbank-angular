@@ -4,11 +4,32 @@
     </div>
     <div class="modal-body">
         <div class="list-group" >
+            <center>
+                <h2>Producto</h2>
+            </center>
             <table class="table">
                 <tr class="btn-primary">
-                    <th>Fecha movimiento</th>
-                    <th>Descripcion</th>
-                    <th>valorMovimiento</th>
+                    <th>Nombre</th>
+                    <th>Tipo Producto</th>
+                    <th>Saldo</th>
+                </tr>
+
+                <tr>
+                    <td>{{productSelected.nombre}}</td>
+                    <td>{{productSelected.tipo}}</td>
+                    <td>{{productSelected.saldo}}</td>
+                </tr>
+              </table>
+
+            <center>
+                <h2>Movimientos</h2>
+            </center>
+
+            <table class="table">
+                <tr class="btn-primary">
+                    <th>Fecha </th>
+                    <th>Descripción</th>
+                    <th>valor</th>
                 </tr>
 
                 <tr

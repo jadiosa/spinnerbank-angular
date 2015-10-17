@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var spinnerBankAngularApp= angular.module('spinnerBankAngularApp', [
+var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
     'ngAnimate',
     'ngCookies',
     'ui.bootstrap',

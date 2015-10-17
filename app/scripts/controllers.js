@@ -25,12 +25,16 @@ angular.module('productos.controllers',['productos.services'])
 
   })
 
+
+
   .controller('modalControler', function ($scope, $modalInstance, API, producto) {
 
     //$scope.detalles = API.detalleMovimientos(producto.idProducto);
 
     API.detalleMovimientos(producto.idProducto).success(function(data) {
       $scope.detalles = data;
+      $scope.productSelected = producto;
+      console.log(producto);
     });
 
     $scope.salirDetalle = function() {
