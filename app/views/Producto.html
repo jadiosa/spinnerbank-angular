@@ -2,17 +2,22 @@
 <!-- @email jorge.atehortua@gmail.com -->
 
 <!-- Esta pagina HTML sera la encargada de llamar y mostrar
- los diferentes productos que estaran contenidos en la base 
+ los diferentes productos que estaran contenidos en la base
  de datos y que estan relacionados con un cliente-->
 
-<div class="container" >
+<div class="container">
 	<h1 align="center">Listado de productos adquiridos por el cliente.</h1>
 	</br>
 	</p>
+	
+	<div class="alert alert-warning text-center" ng-show="productos.length === 0">
+          Usted no tiene productos registrados
+        </div>
 
 <!-- 	tabla para mostrar los archivos  -->
 	<table class="table">
 		<tr class="btn-primary">
+			<th>Codigo producto</th>
 			<th>Nombre del producto</th>
 			<th>Tipo de producto</th>
 			<th>Saldo</th>
@@ -21,7 +26,8 @@
 
 <!-- 		Columnas de la tabla aplicandoles diversos filtros de busqueda -->
 		<tr
-			ng-repeat="item in products">
+			ng-repeat="item in productos">
+			<td>{{item.idProducto}}</td>
 			<td>{{item.nombre}}</td>
 			<td>{{item.tipo}}</td>
 			<td>{{item.saldo}}</td>
@@ -29,4 +35,3 @@
 		</tr>
 	</table>
 </div>
-

@@ -1,23 +1,44 @@
-<div ng-controller="prodControler">    
+<div>
     <div class="modal-header" >
         <center><h1>Detalles Movimientos</h1><center>
     </div>
     <div class="modal-body">
         <div class="list-group" >
+            <center>
+                <h2>Producto</h2>
+            </center>
             <table class="table">
                 <tr class="btn-primary">
-                    <th>Fecha movimiento</th>
-                    <th>Descripcion</th>
-                    <th>valorMovimiento</th>
+                    <th>Nombre</th>
+                    <th>Tipo Producto</th>
+                    <th>Saldo</th>
+                </tr>
+
+                <tr>
+                    <td>{{productSelected.nombre}}</td>
+                    <td>{{productSelected.tipo}}</td>
+                    <td>{{productSelected.saldo}}</td>
+                </tr>
+              </table>
+
+            <center>
+                <h2>Movimientos</h2>
+            </center>
+
+            <table class="table">
+                <tr class="btn-primary">
+                    <th>Fecha </th>
+                    <th>Descripción</th>
+                    <th>valor</th>
                 </tr>
 
                 <tr
                     ng-repeat="detalle in detalles">
-                    <td>{{detalle.fechaMovimiento}}</td>
-                    <td>{{detalle.descripcion}}</td>
-                    <td>{{detalle.valorMovimiento}}</td>
+                    <td>{{detalle.date}}</td>
+                    <td>{{detalle.description}}</td>
+                    <td>{{detalle.value}}</td>
                 </tr>
-    </table>
+              </table>
         </div>
         <div class="alert alert-warning text-center" ng-show="detalles.length === 0">
           No hay detalles de los movimientos de este producto
@@ -25,5 +46,5 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-default" ng-click="salirDetalle()">Salir</button>
-    </div> 
-<div> 
+    </div>
+<div>
