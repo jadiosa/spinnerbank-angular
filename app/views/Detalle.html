@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{productSelected.nombre}}</td>
                     <td>{{productSelected.tipo}}</td>
-                    <td>{{productSelected.saldo}}</td>
+                    <td>{{productSelected.saldo | currency:"COP$ "}}</td>
                 </tr>
               </table>
 
@@ -34,10 +34,10 @@
                 </tr>
 
                 <tr
-                    ng-repeat="detalle in detalles">
+                   ng-repeat="detalle in detalles">
                     <td>{{detalle.date}}</td>
                     <td>{{detalle.description}}</td>
-                    <td>{{detalle.value}}</td>
+                    <td>{{detalle.value | currency:"COP$ "}}</td>
                 </tr>
               </table>
         </div>

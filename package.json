@@ -29,7 +29,10 @@
     "jshint-stylish": "^1.0.0",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "passport": "~0.2.1",
+    "passport-local": "~1.0.0",
+    "passport-google-oauth": "~0.1.5"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -38,8 +41,10 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "angular-messages": "^1.4.7",
     "express": "^4.13.3",
     "gzippo": "^0.2.0",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "satellizer": "^0.12.5"
   }
 }
