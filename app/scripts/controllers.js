@@ -25,6 +25,8 @@ angular.module('productos.controllers',['productos.services'])
 
   })
 
+
+
   .controller('modalControler', function ($scope, $modalInstance, API, producto) {
 
     //$scope.detalles = API.detalleMovimientos(producto.idProducto);

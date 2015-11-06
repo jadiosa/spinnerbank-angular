@@ -80,4 +80,11 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  
+  .fondo {
+      
+  }
+  .fondo:hover {
+     background-color: #C0C0C0;
+   }
 }

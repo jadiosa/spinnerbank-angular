@@ -11,6 +11,11 @@
 var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
     'ngAnimate',
     'ngCookies',
+    'ngMessages',
+    'ngAnimate',
+    'toastr',
+    'ui.router',
+    'satellizer',
     'ui.bootstrap',
     'ngResource',
     'ngRoute',
@@ -19,14 +24,19 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
     'productos.controllers',
     'productos.services'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$authProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/Principal.html',
+        templateUrl: 'views/Login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'LoginCtrl'
+      })
+      .when('/producto', {
+        templateUrl: 'views/Producto.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
       })
-      .when('/producto', {
+      .when('/auth/google', {
         templateUrl: 'views/Producto.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
@@ -34,4 +44,10 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+      $authProvider.google({
+      clientId: '156258725894-rtcen6321lbh8hi9lf66hcsd1m6g0r4k.apps.googleusercontent.com',
+      clientSecret:'zE5PlMYaVagDQQoOkVwTGBbp',
+      callbackURL:'http://localhost:3000'
+    });
   });
