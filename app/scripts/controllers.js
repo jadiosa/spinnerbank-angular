@@ -31,7 +31,7 @@ angular.module('productos.controllers',['productos.services'])
 
     //$scope.detalles = API.detalleMovimientos(producto.idProducto);
 
-    API.detalleMovimientos(producto.idProducto).success(function(data) {
+    API.detalleMovimientos(producto.productId).success(function(data) {
       $scope.detalles = data;
       $scope.productSelected = producto;
       console.log(producto);
