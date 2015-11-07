@@ -38,7 +38,7 @@ angular.module('productos.services', [])
 
 
       detalleMovimientos: function(productId) {
-        return $http.get(base + '/transactions/' + productId, {
+        return $http.get(base + '/v1/transactions/' + productId, {
           method: 'GET'
         });
 
@@ -56,7 +56,7 @@ angular.module('productos.services', [])
       },
 
       obtenerProductos: function(id) {
-        return $http.get(base + '/productos/' + id, {
+        return $http.get(base + '/v1/products/' + id + '/CC', {
           method: 'GET'
         });
       }
