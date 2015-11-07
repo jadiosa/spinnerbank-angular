@@ -9,7 +9,7 @@
 	<h1 align="center">Listado de productos adquiridos por el cliente.</h1>
 	</br>
 	</p>
-	
+
 	<div class="alert alert-warning text-center" ng-show="productos.length === 0">
           Usted no tiene productos registrados
         </div>
@@ -27,10 +27,10 @@
 		<tr
 			class="fondo"
 			ng-repeat="item in productos" ng-click="detalles(item)">
-			<td>{{item.idProducto}}</td>
-			<td>{{item.nombre}}</td>
-			<td>{{item.tipo}}</td>
-			<td>{{item.saldo | currency:"COP$ "}}</td>
+			<td>{{item.productId}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.productType}}</td>
+			<td>{{item.balance | currency:"COP$ "}}</td>
 		</tr>
 	</table>
 </div>
