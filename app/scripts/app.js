@@ -46,8 +46,8 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
       });
 
       $authProvider.google({
-      clientId: '156258725894-rtcen6321lbh8hi9lf66hcsd1m6g0r4k.apps.googleusercontent.com',
-      clientSecret:'zE5PlMYaVagDQQoOkVwTGBbp',
-      callbackURL:'http://localhost:3000'
+      clientId: '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com',
+      clientSecret:'lZ5cGSygNxc3EopNN04JU4JL',
+      callbackURL:' http://spinnerbank-api-external.herokuapp.com/v1/oAuth2/code'
     });
   });

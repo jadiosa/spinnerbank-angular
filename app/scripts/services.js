@@ -3,61 +3,39 @@
 angular.module('productos.services', [])
   .factory('API', function($http) {
     var base = 'https://spinnerbank-api-external.herokuapp.com';
+    var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
 
     return {
-
-      lista_movimientos: [{
-        id: 1936941186,
-        idProducto: 1,
-        fechaMovimiento: '27/enero/2015',
-        descripcion: 'Pagos en linea',
-        valorMovimiento: 256411
-
-      },{
-        id: 1936941186,
-        idProducto: 1,
-        fechaMovimiento: '5/febrero/1999',
-        descripcion: 'Pagos en linea',
-        valorMovimiento: 1
-
-      },{
-        id: 1936941186,
-        idProducto: 1,
-        fechaMovimiento: '5/marzo/1999',
-        descripcion: 'Pago sucursal Oviedo',
-        valorMovimiento: 1000000
-
-      },{
-        id: 54896257,
-        idProducto: 2,
-        fechaMovimiento: '27/enero/2015',
-        descripcion: 'Pagos en linea',
-        valorMovimiento: 256411
-
-      }],
-
 
       detalleMovimientos: function(productId) {
         return $http.get(base + '/v1/transactions/' + productId, {
           method: 'GET'
         });
-
-        /*
-        var lista = [];
-        for (var i in this.lista_movimientos) {
-          if (this.lista_movimientos[i].id == id) {
-            if (this.lista_movimientos[i].idProducto == cod) {
-              lista.push(this.lista_movimientos[i]);
-            }
-          }
-        }
-        return lista;
-        */
       },
 
       obtenerProductos: function(id) {
         return $http.get(base + '/v1/products/' + id + '/CC', {
           method: 'GET'
+        });
+      },
+
+      loginGoogle: function() {
+        return $http.get('https://accounts.google.com/o/oauth2/auth', {
+          method: 'GET',
+          headers : {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+          },
+          params : {
+            'response_type':'code',
+            'client_id':client_id,
+            'redirect_uri':'http://spinnerbank-api-external.herokuapp.com/v1/oAuth2/code',
+            'scope':'email',
+            'state':'security_token',
+            'access_type':'offline',
+            'approval_prompt':'force'
+          }
         });
       }
     };
