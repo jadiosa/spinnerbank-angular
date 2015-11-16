@@ -23,9 +23,7 @@ angular.module('productos.services', [])
         return $http.get('https://accounts.google.com/o/oauth2/auth', {
           method: 'GET',
           headers : {
-            'Access-Control-Allow-Origin' : '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+            'Access-Control-Allow-Origin' : '*'
           },
           params : {
             'response_type':'code',
