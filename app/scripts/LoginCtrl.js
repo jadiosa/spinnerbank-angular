@@ -1,5 +1,6 @@
   angular.module('spinnerBankAngularApp')
 
+   //Controlador encargo de realizar la autenticacion del usuario en el sistema
   .controller('LoginCtrl', function($scope, $location, $auth, API, toastr) {
    
     $scope.login2 = function() {
@@ -14,6 +15,8 @@
         })
     };
 
+    // Funcion medinte la cual se envia la peticion a google para que solicite
+    // al usuario permisos para acceder con si cuenta de google.
     $scope.login = function() {
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';

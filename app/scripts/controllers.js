@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('productos.controllers',['productos.services'])
+  // Controlador encargado de las funciones que se pueden realizar sobre
+  // un producto 
   .controller('prodControler', function($scope, API, $modal) {
 
     $scope.id = 1936941186;
