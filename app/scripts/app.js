@@ -47,24 +47,11 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
         controller: 'SecurityCtrl',
         controllerAs: 'SecurityCtrl'
       })
+      .when('/state=:security_token&code=:accessToken', {
 
-      .when('/access_token=:accessToken', {
-          template: '',
-          controller: function ($location,$rootScope) {
-            var hash = $location.path().substr(1);
-           
-           var splitted = hash.split('&');
-           var params = {};
- 
-           for (var i = 0; i < splitted.length; i++) {
-             var param  = splitted[i].split('=');
-             var key    = param[0];
-             var value  = param[1];
-             params[key] = value;
-             $rootScope.accesstoken=params;
-           }
-           $location.path("/llamarApi");
-         }
+          template: 'views/Producto.html',
+          controller: 'SecurityCtrl',
+          controllerAs: 'SecurityCtrl'
        })
       .otherwise({
         redirectTo: '/'

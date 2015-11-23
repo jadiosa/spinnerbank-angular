@@ -1,11 +1,14 @@
   angular.module('spinnerBankAngularApp')
 
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
-  .controller('LoginCtrl', function($scope, $location, $auth, API, toastr) {
-   
+  .controller('LoginCtrl', function($scope, $routeParams, $location, $auth, API, toastr) {
+
+    var localizacion = $location.search();
+    console.log(localizacion);
+ 
     $scope.login2 = function() {
         
-      API.loginGoogle2()
+      API.loginGoogle()
       .success(function(data) {
         toastr.success('Logeo exitoso');
         console.log('Login Correcto: ',data);
@@ -20,7 +23,7 @@
     $scope.login = function() {
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
-        var redirect_uri = 'http://spinnerbank-api-external.herokuapp.com/v1/oAuth2/code';
+        var redirect_uri = 'http://localhost:9000';
         var response_type = 'code';
         var state = 'security_token';
         var access_type = 'offline';
