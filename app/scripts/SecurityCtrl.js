@@ -1,9 +1,9 @@
 angular.module('spinnerBankAngularApp')
   //Controlador encargado de realizar la Autorizacion y Autenticacion de los 
   // usuarios en el sistema
-  .controller('SecurityCtrl', function($rootScope, $scope, $location, API, toastr) {
+  .controller('SecurityCtrl', function($scope, $routeParams, $location, API, toastr) {
     
-     $scope.root=$rootScope;
+    console.log('SecurityCtrl'); 
 
      // Llamado al servicio de API External que devuelve en token de acceso 
      // para realizar las consultas de los demas servicios
