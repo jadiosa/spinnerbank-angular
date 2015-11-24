@@ -22,7 +22,8 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
     'ngSanitize',
     'ngTouch',
     'productos.controllers',
-    'productos.services'
+    'productos.services',
+    'usuario'
   ])
   .config(function ($routeProvider,$authProvider) {
     $routeProvider
@@ -43,7 +44,7 @@ var spinnerBankAngularApp = angular.module('spinnerBankAngularApp', [
       })
 
       .when('/llamarApi', {
-        templateUrl: 'views/Producto.html',
+        templateUrl: '',
         controller: 'SecurityCtrl',
         controllerAs: 'SecurityCtrl'
       })

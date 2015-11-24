@@ -1,22 +1,37 @@
+  'use strict';
+  
   angular.module('spinnerBankAngularApp')
 
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
-  .controller('LoginCtrl', function($scope, $routeParams, $location, $auth, API, toastr) {
+  .controller('LoginCtrl', function($scope, $location, API, toastr, UsuarioService) {
 
-    var localizacion = $location.search();
-    console.log(localizacion);
- 
-    $scope.login2 = function() {
-        
-      API.loginGoogle()
-      .success(function(data) {
-        toastr.success('Logeo exitoso');
-        console.log('Login Correcto: ',data);
-         // $location.path('/'); 
-      }).error(function (data, status) {
-          console.log('Error: ',data)
-        })
-    };
+    $scope.token = location.search.substring(27);
+
+    //Ingreso cuando el    token es obtenido
+    if ($scope.token!='') {
+
+      UsuarioService.setTokenGoogle($scope.token); 
+      console.log('token Guardado= '+ UsuarioService.getTokenGoogle());
+
+      // Llamado al servicio de API External que devuelve en token de acceso 
+      // para realizar las consultas de los demas servicios
+      API.obtenerTokenApi(UsuarioService.getTokenGoogle())
+        .success(function(data) {
+            var tokenApi = data.access_token;
+            console.log(data);
+            // Llamado al Servicio que retorna la informacion del Usuario logeado
+            // en el sistema.
+            API.obtenerInfoUsuario(tokenApi)
+              .success(function(data) {
+               var infoUsuario = data
+            
+              }).error(function (data, status) {
+                })
+        }).error(function (data, status, gol) {
+            console.log(gol);
+          })
+    }; 
+
 
     // Funcion medinte la cual se envia la peticion a google para que solicite
     // al usuario permisos para acceder con si cuenta de google.
@@ -35,16 +50,4 @@
         window.location.replace(url);
     };
 
-    $scope.authenticate = function(provider) {
-      $auth.authenticate(provider)
-        .then(function() {
-          
-          toastr.success('You have successfully signed in with ' + provider);
-          $location.path('/');
-        })
-        .catch(function(provider) {
-          console.log(provider);
-          toastr.error(provider.data.message);
-        });
-    };
   });
