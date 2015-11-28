@@ -12,6 +12,9 @@ angular.module('productos.controllers',['productos.services'])
       $scope.productos = data;
     });
 
+    $scope.obtenerId = function(){
+      return 1936941186;
+    };
   	$scope.detalles = function(producto) {
       var detalleProducto = $modal.open({
         templateUrl: 'views/Detalle.html',

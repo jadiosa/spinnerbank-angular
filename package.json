@@ -44,7 +44,10 @@
     "angular-messages": "^1.4.7",
     "express": "^4.13.3",
     "gzippo": "^0.2.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
     "morgan": "^1.6.1",
+    "phantomjs": "^1.9.19",
     "satellizer": "^0.12.5"
   }
 }
