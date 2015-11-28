@@ -1,5 +1,5 @@
   'use strict';
-  
+
   angular.module('spinnerBankAngularApp')
 
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
@@ -10,10 +10,10 @@
     //Ingreso cuando el    token es obtenido
     if ($scope.token!='') {
 
-      UsuarioService.setTokenGoogle($scope.token); 
+      UsuarioService.setTokenGoogle($scope.token);
       console.log('token Guardado= '+ UsuarioService.getTokenGoogle());
 
-      // Llamado al servicio de API External que devuelve en token de acceso 
+      // Llamado al servicio de API External que devuelve en token de acceso
       // para realizar las consultas de los demas servicios
       API.obtenerTokenApi(UsuarioService.getTokenGoogle())
         .success(function(data) {
@@ -24,22 +24,22 @@
             API.obtenerInfoUsuario(tokenApi)
               .success(function(data) {
                var infoUsuario = data
-            
+
               }).error(function (data, status) {
                 })
         }).error(function (data, status, gol) {
             console.log(gol);
           })
-    }; 
+    };
 
 
     // Funcion medinte la cual se envia la peticion a google para que solicite
     // al usuario permisos para acceder con si cuenta de google.
     $scope.login = function() {
-      
+
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
-        var redirect_uri = 'https://spinnerbank-angular.herokuapp.com';
+        var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/security';
 
         var response_type = 'code';
         var state = 'security_token';
