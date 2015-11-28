@@ -1,3 +1,4 @@
+'use strict';
 describe('Service: API', function () {
   var API,
       httpBackend;

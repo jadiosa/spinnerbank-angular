@@ -40,7 +40,6 @@
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
         var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/security';
-
         var response_type = 'code';
         var state = 'security_token';
         var access_type = 'offline';
