@@ -25,7 +25,7 @@ angular.module('productos.services', [])
       //Servicio mediante el cual se envia el token de seguridad a SpinnerBank Backend para 
       // que desde este se realice la autenticacion del usuario
       obtenerTokenApi: function(codigoGoogle) {
-        return $http.get('http://spinnerbank-api-external.herokuapp.com/v1/oAuth2/accessToken', {
+        return $http.get('http://spinnerbank-api-external.herokuapp.com/v1/oAuth2/accessToken3', {
           method: 'get',
           params : {
             'code':codigoGoogle
