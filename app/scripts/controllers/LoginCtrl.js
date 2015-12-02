@@ -8,6 +8,7 @@
     //Ingreso cuando el    token es obtenido
     if ($scope.token!='') {
       $scope.token = $scope.token+'/'+location.search.substring(29);
+      console.log('Token '+ $scope.token);
       UsuarioService.setTokenGoogle($scope.token); 
       
       // Llamado al servicio de API External que devuelve en token de acceso 
@@ -40,8 +41,8 @@
 
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
-        var redirect_uri = 'https://spinnerbank-angular.herokuapp.com/';
-        //var redirect_uri = 'http://localhost:9000/';
+        //var redirect_uri = 'https://spinnerbank-angular.herokuapp.com/';
+        var redirect_uri = 'http://localhost:9000/';
         var response_type = 'code';
         var state = 'security_token';
         var access_type = 'offline';
