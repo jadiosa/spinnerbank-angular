@@ -16,13 +16,16 @@
         .success(function(data) {
             var tokenApi = data.access_token;
             console.log('toke api: '+tokenApi);
+            UsuarioService.setAccess_token(tokenApi);
             // Llamado al Servicio que retorna la informacion del Usuario logeado
             // en el sistema.
             API.obtenerInfoUsuario(tokenApi)
               .success(function(data) {
-               var infoUsuario = data
-               console.log('name: '+data.name);
-               console.log('picture: '+data.picture);
+                UsuarioService.setImagen(data.picture);
+                UsuarioService.setNombre(data.given_name);
+                toastr.success('Bienvenido ' + UsuarioService.getNombre());
+               
+                $location.url('/Principal');
               }).error(function (data, status) {
 
                 })
@@ -38,6 +41,7 @@
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
         var redirect_uri = 'https://spinnerbank-angular.herokuapp.com/';
+        //var redirect_uri = 'http://localhost:9000/';
         var response_type = 'code';
         var state = 'security_token';
         var access_type = 'offline';

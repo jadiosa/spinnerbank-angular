@@ -23,7 +23,8 @@ angular.module('spinnerBankAngularApp', [
     'ngTouch',
     'productos.controllers',
     'productos.services',
-    'usuario'
+    'usuario',
+    'logOuth'
   ])
   .config(function ($routeProvider,$authProvider) {
     $routeProvider
@@ -34,6 +35,16 @@ angular.module('spinnerBankAngularApp', [
       })
       .when('/producto', {
         templateUrl: 'views/Producto.html',
+        controller: 'prodControler',
+        controllerAs: 'Producto'
+      })
+      .when('/salir', {
+        templateUrl: 'views/Login.html',
+        controller: 'logOuthCont',
+        controllerAs: 'LogOutCont'
+      })
+      .when('/Principal', {
+        templateUrl: 'views/Principal.html',
         controller: 'prodControler',
         controllerAs: 'Producto'
       })

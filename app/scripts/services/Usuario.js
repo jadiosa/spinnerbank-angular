@@ -21,6 +21,16 @@ angular.module('usuario', [])
 	*/
 	var usuario = {};
 
+  /**
+  Imagen de perfil del usuario
+  */
+  var imagen  = '';
+
+  /**
+  Nombre del usuario
+  */
+  var nombre = '';
+
 	/**
    * @ngdoc method
    * @name setTokenGoogle
@@ -85,13 +95,33 @@ angular.module('usuario', [])
     return usuario;
   }
 
+  function getImagen() {
+    return imagen;
+  }
+
+  function setImagen(im) {
+     imagen = im;
+  }
+
+  function getNombre() {
+    return nombre;
+  }
+
+  function setNombre(nom) {
+     nombre = nom;
+  }
+
   return{
   	setTokenGoogle : setTokenGoogle,
   	getTokenGoogle : getTokenGoogle,
   	setAccess_token : setAccess_token,
   	getAccess_token : setAccess_token,
   	setUsuario : setUsuario,
-  	getUsuario : getUsuario
+  	getUsuario : getUsuario,
+    setImagen : setImagen,
+    getImagen : getImagen,
+    setNombre : setNombre,
+    getNombre : getNombre
   };
 
 });
