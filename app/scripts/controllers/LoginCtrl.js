@@ -16,13 +16,17 @@
         .success(function(data) {
             var tokenApi = data.access_token;
             console.log('toke api: '+tokenApi);
+            UsuarioService.setAccess_token(tokenApi);
             // Llamado al Servicio que retorna la informacion del Usuario logeado
             // en el sistema.
             API.obtenerInfoUsuario(tokenApi)
               .success(function(data) {
-               var infoUsuario = data
                console.log('name: '+data.name);
                console.log('picture: '+data.picture);
+               UsuarioService.setImagen(data.picture);
+               UsuarioService.setNombre(data.given_name);
+               toastr.success('Bienvenido ' + UsuarioService.getNombre());
+               $location.url('/Principal');
               }).error(function (data, status) {
 
                 })
