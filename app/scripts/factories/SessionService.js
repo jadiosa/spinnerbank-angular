@@ -10,7 +10,7 @@ angular.module('session.services', [])
       //Servicio mediante el cual se envia el token de seguridad a SpinnerBank Backend para 
       // que desde este se realice la autenticacion del usuario
       obtenerTokenApi: function(codigoGoogle) {
-        return $http.get(base, '/v1/oAuth2/accessToken3', {
+        return $http.get(base + '/v1/oAuth2/accessToken3', {
           method: 'get',
           params : {
             'code':codigoGoogle
@@ -21,7 +21,7 @@ angular.module('session.services', [])
       //Servicio encargado de obtener la informacion del usuario logeado en el 
       // sistema mediante el Token de acceso que provee el Api Backend
       obtenerInfoUsuario: function(TokenApi) {
-        return $http.get(base, '/v1/oAuth2/userInfo', {
+        return $http.get(base + '/v1/oAuth2/userInfo', {
           method: 'get',
           params : {
             'access_token':TokenApi

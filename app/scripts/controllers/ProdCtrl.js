@@ -42,7 +42,7 @@ angular.module('productos.controllers',['productos.services','usuario'])
   .controller('modalControler', function ($scope, $modalInstance, ApiProductos, producto) {
 
 
-    ApiProducto.detalleMovimientos(producto.productId).success(function(data) {
+    ApiProductos.detalleMovimientos(producto.productId).success(function(data) {
       $scope.detalles = data;
       $scope.productSelected = producto;
     });
