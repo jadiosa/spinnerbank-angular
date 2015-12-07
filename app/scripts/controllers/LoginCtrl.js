@@ -1,8 +1,8 @@
   'use strict';
 
-  angular.module('spinnerBankAngularApp')
+  angular.module('LoginGoogle', ['session.services', 'usuario'])
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
-  .controller('LoginCtrl', function($scope,$rootScope, $location, API, toastr, UsuarioService) {
+  .controller('LoginCtrl', function($scope,$rootScope, $location, ApiSession, toastr, UsuarioService) {
     $scope.token = location.search.substring(27,28);
    
     //Ingreso cuando el    token es obtenido
@@ -10,29 +10,26 @@
       $scope.token = $scope.token+'/'+location.search.substring(29);
       UsuarioService.setTokenGoogle($scope.token); 
       
-      // Llamado al servicio de API External que devuelve en token de acceso 
+      // Llamado al servicio de ApiSession External que devuelve en token de acceso 
       // para realizar las consultas de los demas servicios
-      API.obtenerTokenApi(UsuarioService.getTokenGoogle())
+      ApiSession.obtenerTokenApi(UsuarioService.getTokenGoogle())
         .success(function(data) {
             var tokenApi = data.access_token;
-            console.log('toke api: '+tokenApi);
             UsuarioService.setAccess_token(tokenApi);
             // Llamado al Servicio que retorna la informacion del Usuario logeado
             // en el sistema.
-            API.obtenerInfoUsuario(tokenApi)
+            ApiSession.obtenerInfoUsuario(tokenApi)
               .success(function(data) {
-               console.log('name: '+data.name);
-               console.log('picture: '+data.picture);
                UsuarioService.setImagen(data.picture);
                UsuarioService.setNombre(data.given_name);
                toastr.success('Bienvenido ' + UsuarioService.getNombre());
                $location.url('/Principal');
               }).error(function (data, status) {
-
-                })
+                  console.log(data);
+              })
         }).error(function (data, status) {
             console.log(data);
-          });
+      });
     }
 
     // Funcion medinte la cual se envia la peticion a google para que solicite

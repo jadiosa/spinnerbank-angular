@@ -3,16 +3,21 @@
 angular.module('productos.controllers',['productos.services','usuario'])
   // Controlador encargado de las funciones que se pueden realizar sobre
   // un producto 
-  .controller('prodControler', function($scope, API, $modal,UsuarioService) {
+  .controller('prodControler', function($scope, ApiProductos, $modal, UsuarioService) {
 
     $scope.id = 1936941186;
     $scope.cod = 1;
     $scope.imagenPersonal = UsuarioService.getImagen();
     $scope.nombre = UsuarioService.getNombre();
 
-    API.obtenerProductos($scope.id).success(function(data) {
-      $scope.productos = data;
-    });
+    ApiProductos.obtenerProductos($scope.id)
+      .success(function(data) {
+        $scope.productos = data;
+      })
+      .error(function (data, status) {
+        $scope.productos = '';
+        console.log(data);
+      });
 
     $scope.obtenerId = function(){
       return 1936941186;
@@ -34,14 +39,12 @@ angular.module('productos.controllers',['productos.services','usuario'])
 
 
 
-  .controller('modalControler', function ($scope, $modalInstance, API, producto) {
+  .controller('modalControler', function ($scope, $modalInstance, ApiProductos, producto) {
 
-    //$scope.detalles = API.detalleMovimientos(producto.idProducto);
 
-    API.detalleMovimientos(producto.productId).success(function(data) {
+    ApiProducto.detalleMovimientos(producto.productId).success(function(data) {
       $scope.detalles = data;
       $scope.productSelected = producto;
-      console.log(producto);
     });
 
     $scope.salirDetalle = function() {
