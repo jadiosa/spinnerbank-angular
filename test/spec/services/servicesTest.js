@@ -1,6 +1,6 @@
 'use strict';
-describe('Service: API', function () {
-  var API,
+describe('Service: ApiProductos', function () {
+  var ApiProductos,
       httpBackend;
 
   beforeEach(function (){
@@ -12,8 +12,8 @@ describe('Service: API', function () {
 
     // get your service, also get $httpBackend
     // $httpBackend will be a mock, thanks to angular-mocks.js
-    inject(function($httpBackend, _API_) {
-      API = _API_;
+    inject(function($httpBackend, _ApiProductos_) {
+      ApiProductos = _ApiProductos_;
       httpBackend = $httpBackend;
     });
   });
@@ -25,7 +25,7 @@ describe('Service: API', function () {
     httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('Consumir API para saber los productos de un cliente', function (){
+  it('Consumir ApiProductos para saber los productos de un cliente', function (){
     // set up some data for the http call to return and test later.
     var returnData = { excited: true };
 
@@ -33,7 +33,7 @@ describe('Service: API', function () {
     httpBackend.expectGET('https://spinnerbank-api-external.herokuapp.com/v1/products/1936941186/CC').respond(returnData);
 
     // make the call.
-    var returnedPromise = API.obtenerProductos(1936941186);
+    var returnedPromise = ApiProductos.obtenerProductos(1936941186);
 
     // set up a handler for the response, that will put the result
     // into a variable in this scope for you to test.
