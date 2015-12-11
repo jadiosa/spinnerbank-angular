@@ -14,7 +14,9 @@
       // para realizar las consultas de los demas servicios
       ApiSession.obtenerTokenApi(UsuarioService.getTokenGoogle())
         .success(function(data) {
-            var tokenApi = data.access_token;
+           console.log('Data: ' + data);
+            var tokenApi = data.jwt;
+            console.log('Token JWT: ' + tokenApi);
             UsuarioService.setAccess_token(tokenApi);
             // Llamado al Servicio que retorna la informacion del Usuario logeado
             // en el sistema.
@@ -24,6 +26,7 @@
                UsuarioService.setNombre(data.given_name);
                toastr.success('Bienvenido ' + UsuarioService.getNombre());
                $location.url('/Principal');
+               //window.location.replace('http://localhost:9000/#/Principal');
               }).error(function (data, status) {
                   console.log(data);
               })
@@ -38,8 +41,8 @@
 
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
-        var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/';
-        //var redirect_uri = 'http://localhost:9000/';
+        //var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/';
+        var redirect_uri = 'http://localhost:9000/';
 
         var response_type = 'code';
         var state = 'security_token';

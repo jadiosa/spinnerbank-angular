@@ -41,6 +41,7 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "angular-google-maps": "^2.2.1",
     "angular-messages": "^1.4.7",
     "express": "^4.13.3",
     "gzippo": "^0.2.0",

@@ -25,8 +25,10 @@ angular.module('spinnerBankAngularApp', [
     'productos.services',
     'session.services',
     'principal.controllers',
+    'asesor.controllers',
     'LoginGoogle',
     'usuario',
+    'Asesor',
     'logOuth'
   ])
   .config(function ($routeProvider,$authProvider) {
@@ -50,6 +52,11 @@ angular.module('spinnerBankAngularApp', [
         templateUrl: 'views/Principal.html',
         controller: 'principalCtrl',
         controllerAs: 'PrincipalCtrl'
+      })
+      .when('/asesor', {
+        templateUrl: 'views/InfoAsesor.html',
+        controller: 'AsesorCtrl',
+        controllerAs: 'AsesorCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -12,6 +12,7 @@ angular.module('productos.controllers',['productos.services','usuario'])
 
     ApiProductos.obtenerProductos($scope.id)
       .success(function(data) {
+        console.log('Resultado peticion: ' + data);
         $scope.productos = data;
       })
       .error(function (data, status) {

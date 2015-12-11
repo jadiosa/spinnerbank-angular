@@ -7,5 +7,6 @@ angular.module('logOuth',['usuario'])
   	UsuarioService.setNombre('');
   	UsuarioService.setImagen('');
   	//$location.url('http://localhost:9000');
-  	$location.path('/');
+  	//$location.path('/');
+  	window.location.replace('http://localhost:9000/#/'); 
   	 });
