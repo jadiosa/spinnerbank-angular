@@ -115,7 +115,7 @@ angular.module('usuario', [])
   	setTokenGoogle : setTokenGoogle,
   	getTokenGoogle : getTokenGoogle,
   	setAccess_token : setAccess_token,
-  	getAccess_token : setAccess_token,
+  	getAccess_token : getAccess_token,
   	setUsuario : setUsuario,
   	getUsuario : getUsuario,
     setImagen : setImagen,
