@@ -10,9 +10,9 @@ angular.module('asesor.services', [])
       // en elsistema mediante el Token de acceso que provee el Api Backend
       obtenerInfoAsesor: function(TokenApi, usuarioId) {
         return $http.get(base + '/v2/customer/adviser/'+ usuarioId, {
-          method: 'get',
+          method: 'GET',
           params : {
-            'jwt':TokenApi
+            jwt:TokenApi
           }
         });
       }

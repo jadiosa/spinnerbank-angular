@@ -35,7 +35,7 @@ angular.module('usuario', [])
    * @ngdoc method
    * @name setTokenGoogle
    * @description Setea el token de google que se asigna al usuario
-   * 
+   *
    * @param {String} tokenUser Token asignado al usuario
    */
   function setTokenGoogle(tokenUser) {
@@ -46,7 +46,7 @@ angular.module('usuario', [])
    * @ngdoc method
    * @name  getToken
    * @description Devuelve el token de google asignado al usuario
-   * 
+   *
    * @return {String} Token de google asignado al usuario
    */
   function getTokenGoogle() {
@@ -57,7 +57,7 @@ angular.module('usuario', [])
    * @ngdoc method
    * @name setAccess_token
    * @description Setea el token del suario en la API EXTERNAL
-   * 
+   *
    * @param {String} tokenUser Token asignado al usuario
    */
   function setAccess_token(tokenUser) {
@@ -78,7 +78,7 @@ angular.module('usuario', [])
    * @ngdoc method
    * @name setUsuario
    * @description Setea la informacion personal del usuario desde el  API EXTERNAL
-   * 
+   *
    * @param {Object} usuario Informacion del usuario
    */
   function setUsuario(usuario) {
