@@ -25,7 +25,7 @@ angular.module('Asesor', [])
 
   var fotoAsesor = '';
 
-  var myLatLng= {lat: 6.2675767, lng: -75.5689946};
+  var myLatLng= {lat: -42.53332, lng: -39.41298};
 
 
   function getMyLatLng() {

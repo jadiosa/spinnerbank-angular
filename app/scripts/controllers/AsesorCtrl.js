@@ -13,7 +13,10 @@ angular.module('asesor.controllers',['Asesor'])
     $scope.celular = AsesorService.getCelular();
   	$scope.direccion = AsesorService.getDireccion();
   	$scope.fotoAsesor = AsesorService.getFotoAsesor();
+    $scope.latitud = AsesorService.getLatitud();
+    $scope.longitud = AsesorService.getLongitud();
     $scope.myLatLng=AsesorService.getMyLatLng();    
+    
     $scope.mapOptions={
         center:$scope.myLatLng,
         zoom:16,

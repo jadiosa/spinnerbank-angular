@@ -23,6 +23,7 @@ angular.module('principal.controllers',['usuario','asesor.services','Asesor'])
                 AsesorService.setLatitud(data.lat);
                 AsesorService.setLongitud(data.long);
                 AsesorService.setFotoAsesor(data.photoUrl);
+                AsesorService.setDireccion(data.direction);
                $location.url('/asesor');
               }).error(function (data, status) {
                   console.log(data);
