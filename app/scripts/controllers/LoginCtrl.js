@@ -4,13 +4,13 @@
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
   .controller('LoginCtrl', function($scope,$rootScope, $location, ApiSession, toastr, UsuarioService) {
     $scope.token = location.search.substring(27,28);
-   
+
     //Ingreso cuando el    token es obtenido
     if ($scope.token!='') {
       $scope.token = $scope.token+'/'+location.search.substring(29);
-      UsuarioService.setTokenGoogle($scope.token); 
-      
-      // Llamado al servicio de ApiSession External que devuelve en token de acceso 
+      UsuarioService.setTokenGoogle($scope.token);
+
+      // Llamado al servicio de ApiSession External que devuelve en token de acceso
       // para realizar las consultas de los demas servicios
       ApiSession.obtenerTokenApi(UsuarioService.getTokenGoogle())
         .success(function(data) {

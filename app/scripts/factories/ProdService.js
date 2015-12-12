@@ -8,17 +8,23 @@ angular.module('productos.services', [])
     return {
       //Servicio mediante el cual se obtiene los detalles de los movimientos
       // de un producto de un cliente
-      detalleMovimientos: function(productId) {
-        return $http.get(base + '/v1/transactions/' + productId, {
-          method: 'GET'
+      detalleMovimientos: function(token, productId) {
+        return $http.get(base + '/v2/transactions/' + productId, {
+          method: 'GET',
+          params: {
+            jwt: token
+          }
         });
       },
 
       //Servicio mediante el cual se obtiene la informacion de los productos de
       // un cliente
-      obtenerProductos: function(id) {
-        return $http.get(base + '/v1/products/' + id + '/CC', {
-          method: 'GET'
+      obtenerProductos: function(token, id) {
+        return $http.get(base + '/v2/products/' + id + '/CC', {
+          method: 'GET',
+          params: {
+            jwt: token
+          }
         });
       }
     };

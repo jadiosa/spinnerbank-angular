@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('productos.controllers',['productos.services','usuario'])
+angular.module('productos.controllers',['productos.services', 'usuario'])
   // Controlador encargado de las funciones que se pueden realizar sobre
   // un producto
   .controller('prodControler', function($scope, ApiProductos, $modal, $location, UsuarioService) {
@@ -9,11 +9,14 @@ angular.module('productos.controllers',['productos.services','usuario'])
     $scope.cod = 1;
     $scope.imagenPersonal = UsuarioService.getImagen();
     $scope.nombre = UsuarioService.getNombre();
+    $scope.tokenApi = UsuarioService.getAccess_token();
 
-    ApiProductos.obtenerProductos($scope.id)
+    console.log('El token es: ' + $scope.tokenApi);
+
+    ApiProductos.obtenerProductos($scope.tokenApi, $scope.id)
       .success(function(data) {
-        console.log('Resultado peticion: ' + data);
         $scope.productos = data;
+        console.log(data);
       })
       .error(function (data, status) {
         $scope.productos = '';
@@ -46,7 +49,7 @@ angular.module('productos.controllers',['productos.services','usuario'])
   .controller('modalControler', function ($scope, $modalInstance, ApiProductos, producto) {
 
 
-    ApiProductos.detalleMovimientos(producto.productId).success(function(data) {
+    ApiProductos.detalleMovimientos($scope.tokenApi, producto.productId).success(function(data) {
       $scope.detalles = data;
       $scope.productSelected = producto;
     });
