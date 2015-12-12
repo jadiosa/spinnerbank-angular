@@ -17,6 +17,12 @@
     <link href="/styles/angular-toastr.css" rel="stylesheet">
     <link href="/styles/styles.css" rel="stylesheet">
     <!-- endbuild -->
+    <style>#map{
+        height: 300px;
+        width: 500px;
+        border: 2px solid red;
+      }
+    </style>
   </head>
 
   <!-- spinnerBankAngularApp es el nombre general del modulo que controla toda la aplicación -->
@@ -100,10 +106,14 @@
     <script src="bower_components/satellizer/satellizer.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/crypto-js/index.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGqL93YZ2J-5su06olF72yDy2FMKNfvDM&sensor=false"
+        async defer></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/ProdCtrl.js"></script>

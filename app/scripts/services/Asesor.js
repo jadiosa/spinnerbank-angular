@@ -23,7 +23,13 @@ angular.module('Asesor', [])
 
   var fotoAsesor = '';
 
-	
+  var myLatLng= {lat: 6.2675767, lng: -75.5689946};
+
+
+  function getMyLatLng() {
+    return myLatLng;
+  }
+
   function setNombreAsesor(nombre) {
     nombreAsesor = nombre;
   }
@@ -96,6 +102,7 @@ angular.module('Asesor', [])
   	getTipoDocumento : getTipoDocumento,
   	setNumDocumento : setNumDocumento,
   	getNumDocumento : getNumDocumento,
+    getMyLatLng : getMyLatLng,
     setCorreo : setCorreo,
     getCorreo : getCorreo,
     setCelular : setCelular,

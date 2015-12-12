@@ -13,28 +13,18 @@ angular.module('asesor.controllers',['Asesor'])
   	$scope.direccion = AsesorService.getDireccion();
   	$scope.direccionGeografica = AsesorService.getDireccionGeografica();
   	$scope.fotoAsesor = AsesorService.getFotoAsesor();
-
-    $scope.map = {
-      center: {
-        latitude: 40.454018, 
-        longitude: -3.509205
-      }, 
-      zoom: 12,
-      options : {
-        scrollwheel: false
-      },
-      control: {}
-    };
+    $scope.myLatLng=AsesorService.getMyLatLng();
     
-    $scope.marker = {
-      id: 0,
-      coords: {
-        latitude: 40.454018,
-        longitude: -3.509205
-      },
-      options: {
-        draggable: true
-      }
+    $scope.mapOptions={
+        center:$scope.myLatLng,
+        zoom:16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
+    var map = new google.maps.Map(document.getElementById('map'),$scope.mapOptions);
+    $scope.marker= new google.maps.Marker({
+        position: $scope.myLatLng,
+        map: map, 
+        title:'Oficina'
+    });
+    $scope.marker.setMap(map);  
   });
