@@ -2,8 +2,8 @@
 
 angular.module('productos.controllers',['productos.services','usuario'])
   // Controlador encargado de las funciones que se pueden realizar sobre
-  // un producto 
-  .controller('prodControler', function($scope, ApiProductos, $modal, UsuarioService) {
+  // un producto
+  .controller('prodControler', function($scope, ApiProductos, $modal, $location, UsuarioService) {
 
     $scope.id = 1936941186;
     $scope.cod = 1;
@@ -23,6 +23,7 @@ angular.module('productos.controllers',['productos.services','usuario'])
     $scope.obtenerId = function(){
       return 1936941186;
     };
+
   	$scope.detalles = function(producto) {
       var detalleProducto = $modal.open({
         templateUrl: 'views/Detalle.html',
@@ -36,9 +37,11 @@ angular.module('productos.controllers',['productos.services','usuario'])
       });
     };
 
+    $scope.nuevoProducto = function() {
+      $location.url('/nuevoProducto');
+    };
+
   })
-
-
 
   .controller('modalControler', function ($scope, $modalInstance, ApiProductos, producto) {
 
@@ -51,4 +54,8 @@ angular.module('productos.controllers',['productos.services','usuario'])
     $scope.salirDetalle = function() {
       $modalInstance.close();
     };
+  })
+
+  .controller('nuevoProducto', function($scope, ApiProductos, $modal, UsuarioService) {
+
   });

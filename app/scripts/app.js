@@ -48,6 +48,11 @@ angular.module('spinnerBankAngularApp', [
         controller: 'logOuthCont',
         controllerAs: 'LogOutCtrl'
       })
+      .when('/nuevoProducto', {
+        templateUrl: 'views/NuevoProducto.html',
+        controller: 'nuevoProducto',
+        controllerAs: 'ProdCtrl'
+      })
       .when('/Principal', {
         templateUrl: 'views/Principal.html',
         controller: 'principalCtrl',
