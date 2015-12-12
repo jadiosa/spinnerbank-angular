@@ -21,6 +21,6 @@ describe('Controller: prodControler', function () {
   }));
 
   it('Verifica que el parámetro id del scope se haya instanciado correctamente', function () {
-    expect(scope.id).toBe(1936941186);
+    expect(scope.id).toBe(54896257);
   });
 });
