@@ -32,8 +32,16 @@ angular.module('productos.services', [])
       },
 
       obtenerProductos2: function(token, id) {
-        console.log('Desde el servicio, token: ' + token);
         return $http.get(base + '/v2/products/' + id + '/CC', {
+          method: 'GET',
+          params: {
+            jwt: token
+          }
+        });
+      },
+
+      obtenerNombreTipoProducto: function(token, id) {
+        return $http.get(base + '/v2/products/type', {
           method: 'GET',
           params: {
             jwt: token
