@@ -18,7 +18,7 @@ angular.module('productos.services', [])
         return $http.get(base + '/v2/transactions/' + productId, {
           method: 'GET',
           params: {
-            'jwt': token
+            jwt: token
           }
         });
       },
