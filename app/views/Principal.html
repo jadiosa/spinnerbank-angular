@@ -1,11 +1,18 @@
 
-<div class="jumbotron">
-  <h1>{{nombre}}</h1>
+<div class="alert alert-warning text-center" ng-show="nombre.length === 0">
+  Debe <a ng-href="#/">iniciar sesión</a> con google para ver su información personal
+</div>
 
+<div ng-show="nombre.length != 0">
+	<div class="jumbotron">
+		<button type="button" class="btn btn-primary center-block" ng-click="inforAsesor()">Información asesor</button>
+	  
+	  <h1>{{nombre}}</h1>
 
-       <div class="container">
-	    <img class="images"
-	    ng-src="{{imagenPersonal}}">
-	  </div>
-	
+	       <div class="container">
+		    <img class="images"
+		    ng-src="{{imagenPersonal}}">
+		  </div>
+		
+	</div>
 </div>
