@@ -6,15 +6,14 @@ angular.module('asesor.controllers',['Asesor'])
   .controller('AsesorCtrl', function($scope, $modal,AsesorService) {
 
     $scope.nombreAsesor = AsesorService.getNombreAsesor();
+    console.log($scope.nombreAsesor);
     $scope.tipoDocumento = AsesorService.getTipoDocumento();
     $scope.numDocumento = AsesorService.getNumDocumento();
     $scope.correo = AsesorService.getCorreo();
     $scope.celular = AsesorService.getCelular();
   	$scope.direccion = AsesorService.getDireccion();
-  	$scope.direccionGeografica = AsesorService.getDireccionGeografica();
   	$scope.fotoAsesor = AsesorService.getFotoAsesor();
-    $scope.myLatLng=AsesorService.getMyLatLng();
-    
+    $scope.myLatLng=AsesorService.getMyLatLng();    
     $scope.mapOptions={
         center:$scope.myLatLng,
         zoom:16,

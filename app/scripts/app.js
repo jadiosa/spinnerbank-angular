@@ -29,6 +29,7 @@ angular.module('spinnerBankAngularApp', [
     'LoginGoogle',
     'usuario',
     'Asesor',
+    'asesor.services',
     'logOuth'
   ])
   .config(function ($routeProvider,$authProvider) {

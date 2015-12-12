@@ -1,19 +1,24 @@
-<div class="jumbotron">
+<div class="alert alert-warning text-center" ng-show="nombreAsesor.length === 0">
+  Ofrecemos disculpas aun no tienes un asesor asignado
+</div>
+
+<div class="jumbotron" ng-show="nombreAsesor.length != 0" >
         <h2>Información asesor</h2> 
     <div>
         <div class="container">
             <img class="images"
-            ng-src="{{imagenPersonal}}">
+            ng-src="{{fotoAsesor}}">
         </div>
         <h3>
-            Nombre: {{nombreAsesor}}<br/>
-            Tipo documento: {{tipoDocumento}}<br/>
-            Número documento: {{numDocumento}}<br/>
+            Nombre : {{nombreAsesor}}<br/>
+            Tipo documento : {{tipoDocumento}}<br/>
+            Número documento : {{numDocumento}}<br/>
             Correo : {{correo}}<br/>
             Celular : {{celular}}<br/>
             Dirección: {{direccion}}<br/>
             Dirección geografica: {{direccionGeografica}}<br/>
-
+            Latitud : {{latitud}}<br/>
+            Longitud : {{longitud}}<br/>
         </h3>
         <div id="map">
         </div>
