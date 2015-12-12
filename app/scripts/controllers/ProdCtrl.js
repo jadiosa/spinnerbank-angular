@@ -13,7 +13,7 @@ angular.module('productos.controllers',['productos.services', 'usuario'])
 
     console.log('El token es: ' + $scope.tokenApi);
 
-    ApiProductos.obtenerProductos($scope.tokenApi, $scope.id)
+    ApiProductos.obtenerProductos2($scope.tokenApi, $scope.id)
       .success(function(data) {
         $scope.productos = data;
         console.log(data);
@@ -49,7 +49,7 @@ angular.module('productos.controllers',['productos.services', 'usuario'])
   .controller('modalControler', function ($scope, $modalInstance, ApiProductos, producto) {
 
 
-    ApiProductos.detalleMovimientos($scope.tokenApi, producto.productId).success(function(data) {
+    ApiProductos.detalleMovimientos2($scope.tokenApi, producto.productId).success(function(data) {
       $scope.detalles = data;
       $scope.productSelected = producto;
     });
