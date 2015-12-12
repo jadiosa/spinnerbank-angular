@@ -68,4 +68,4 @@ angular.module('spinnerBankAngularApp', [
         redirectTo: '/'
       });
 
-  });
+  }); 

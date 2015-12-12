@@ -3,6 +3,7 @@
   angular.module('LoginGoogle', ['session.services', 'usuario'])
    //Controlador encargo de realizar la autenticacion del usuario en el sistema
   .controller('LoginCtrl', function($scope,$rootScope, $location, ApiSession, toastr, UsuarioService) {
+   
     if (UsuarioService.getTokenGoogle()==="") {
 
       $scope.token = location.search.substring(27,28);

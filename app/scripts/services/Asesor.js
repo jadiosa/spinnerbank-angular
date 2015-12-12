@@ -7,7 +7,7 @@ angular.module('Asesor', [])
 */
 .service('AsesorService', function () {
 
-	var nombreAsesor = 'Pablo';
+	var nombreAsesor = 'David';
 
 	var tipoDocumento = 'CC';
 
@@ -19,11 +19,19 @@ angular.module('Asesor', [])
   
   var direccion = 'Calle x';
 
-  var direccionGeografica = 'Cualquier cosa';
+  var latitud = '-42.53332';
+
+  var longitud = '-39.41298';
 
   var fotoAsesor = '';
 
-	
+  var myLatLng= {lat: -42.53332, lng: -39.41298};
+
+
+  function getMyLatLng() {
+    return myLatLng;
+  }
+
   function setNombreAsesor(nombre) {
     nombreAsesor = nombre;
   }
@@ -72,12 +80,20 @@ angular.module('Asesor', [])
     return direccion;
   }
 
-  function setDireccionGeografica(dir) {
-    direccionGeografica = dir;
+  function setLatitud(lat) {
+    latitud = lat;
   }
 
-  function getDireccionGeografica() {
-    return direccionGeografica;
+  function getLatitud() {
+    return latitud;
+  }
+
+  function setLongitud(lat) {
+    longitud = lat;
+  }
+
+  function getLongitud() {
+    return longitud;
   }
 
   function setFotoAsesor(f) {
@@ -96,6 +112,7 @@ angular.module('Asesor', [])
   	getTipoDocumento : getTipoDocumento,
   	setNumDocumento : setNumDocumento,
   	getNumDocumento : getNumDocumento,
+    getMyLatLng : getMyLatLng,
     setCorreo : setCorreo,
     getCorreo : getCorreo,
     setCelular : setCelular,
@@ -104,8 +121,10 @@ angular.module('Asesor', [])
     getDireccion : getDireccion,
     setFotoAsesor : setFotoAsesor,
     getFotoAsesor : getFotoAsesor,
-    setDireccionGeografica : setDireccionGeografica,
-    getDireccionGeografica : getDireccionGeografica
+    setLatitud : setLatitud,
+    getLatitud : getLatitud,
+    setLongitud : setLongitud,
+    getLongitud : getLongitud
     
   };
 
