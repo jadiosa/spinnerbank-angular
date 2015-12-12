@@ -3,18 +3,22 @@
   <br/>
   <div class="form-group">
     <label for="nombreProducto">Nombre Producto</label>
-    <select class="form-control"></select>
+    <select class="form-control" data-ng-model="option1" data-ng-change="getOptions2()" required>
+      <option ng-repeat="nombre in nombres" value="{{nombre}}">{{nombre}}</option>
+    </select>
   </div>
 
   <div class="form-group">
     <label for="tipoProducto">Tipo Producto</label>
-    <select class="form-control"></select>
+    <select class="form-control" data-ng-model="option2" required>
+      <option ng-repeat="o in options2" value="{{o.productType}}">{{o.productType}}</option>
+    </select>
   </div>
 
   <div class="form-group">
     <label for="cupo">Cupo</label>
-    <input type="number" class="form-control" aria-label="amount">
+    <input type="number" class="form-control" aria-label="amount" data-ng-model="cupo" required>
   </div>
 
-  <button type="submit" class="btn btn-default">Enviar</button>
+  <button type="submit" class="btn btn-default" ng-click="enviar()">Enviar</button>
 </form>
