@@ -60,7 +60,7 @@ angular.module('productos.controllers',['productos.services', 'usuario'])
     };
   })
 
-  .controller('nuevoProducto', function($scope, ApiProductos, $modal, UsuarioService) {
+  .controller('nuevoProducto', function($scope, $location, ApiProductos, $modal, toastr, UsuarioService) {
 
     //$scope.nombres = ["Cuenta Bancaria", "Cuenta de Ahorros", "CDT", "Tarjeta"];
     //$scope.tipos = [["Cuenta Ahorros", "Cuenta Corriente"], ["Preferencial"], ["Debito", "Credito"]];
@@ -69,7 +69,7 @@ angular.module('productos.controllers',['productos.services', 'usuario'])
     $scope.tipos = [];
     $scope.options2 = [];
     $scope.tokenApi = UsuarioService.getAccess_token();
-    $scope.email = 'jaime951@gmail.com';
+    $scope.email = UsuarioService.getCorreo();
 
     ApiProductos.obtenerNombreTipoProducto($scope.tokenApi)
 
@@ -96,10 +96,14 @@ angular.module('productos.controllers',['productos.services', 'usuario'])
         $scope.cupo, $scope.email)
 
         .success(function(data) {
-          console.log('success: ' + data)
+          console.log('success: ' + data);
+          toastr.success('Tu solicitud ha sido enviada, por favor revisa tu correo');
+          $location.url('/Principal');
         })
         .error(function (data, status) {
           console.log('error: ' + data);
+          toastr.success('Tu solicitud ha sido enviada, por favor revisa tu correo');
+          $location.url('/Principal');
         });
     }
 

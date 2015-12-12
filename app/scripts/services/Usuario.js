@@ -31,6 +31,8 @@ angular.module('usuario', [])
   */
   var nombre = '';
 
+  var correo = '';
+
 	/**
    * @ngdoc method
    * @name setTokenGoogle
@@ -111,6 +113,14 @@ angular.module('usuario', [])
      nombre = nom;
   }
 
+  function getCorreo() {
+    return correo;
+  }
+
+  function setCorreo(nom) {
+     correo = nom;
+  }
+
   return{
   	setTokenGoogle : setTokenGoogle,
   	getTokenGoogle : getTokenGoogle,
@@ -121,7 +131,9 @@ angular.module('usuario', [])
     setImagen : setImagen,
     getImagen : getImagen,
     setNombre : setNombre,
-    getNombre : getNombre
+    getNombre : getNombre,
+    setCorreo : setCorreo,
+    getCorreo : getCorreo
   };
 
 });

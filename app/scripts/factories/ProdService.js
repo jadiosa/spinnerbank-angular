@@ -15,7 +15,6 @@ angular.module('productos.services', [])
       },
 
       detalleMovimientos2: function(token, productId) {
-        console.log('Token desde el servicio: ' + token);
         return $http.get(base + '/v2/transactions/' + productId, {
           method: 'GET',
           params: {
@@ -33,7 +32,6 @@ angular.module('productos.services', [])
       },
 
       obtenerProductos2: function(token, id) {
-        console.log('Token desde el servicio: ' + token);
         return $http.get(base + '/v2/products/' + id + '/CC', {
           method: 'GET',
           params: {
@@ -52,16 +50,11 @@ angular.module('productos.services', [])
       },
 
       enviarSolicitud: function(token, nombre, tipoProducto, monto, correo) {
-        console.log('sNombre: ' + nombre);
-        console.log('sTipo: ' + tipoProducto);
-        console.log('sCupo: ' + monto);
-        console.log('sCorreo: ' + correo);
-        console.log('sToken: ' + token);
+       
 
-        return $http.get(base + '/v2/product/request/', {
+        return $http.get(base + '/v2/product/request', {
           method: 'GET',
           params: {
-            jwt: token,
             name: nombre,
             productType: tipoProducto,
             amount: monto,

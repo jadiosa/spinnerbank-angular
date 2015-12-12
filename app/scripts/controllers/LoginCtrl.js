@@ -26,6 +26,7 @@
               ApiSession.obtenerInfoUsuario(tokenApi)
                 .success(function(data) {
                  UsuarioService.setImagen(data.picture);
+                 UsuarioService.setCorreo(data.email);
                  UsuarioService.setNombre(data.given_name);
                  toastr.success('Bienvenido ' + UsuarioService.getNombre());
                  $location.url('/Principal');
@@ -49,8 +50,8 @@
 
         var scope = 'email';
         var client_id = '116421120632-otf7afrfqtfeiqlibtlatnou8964bge0.apps.googleusercontent.com';
-        //var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/';
-        var redirect_uri = 'http://localhost:9000/';
+        var redirect_uri = 'http://spinnerbank-angular.herokuapp.com/';
+        //var redirect_uri = 'http://localhost:9000/';
 
         var response_type = 'code';
         var state = 'security_token';
